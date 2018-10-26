@@ -13,10 +13,14 @@ func main() {
 		os.Getenv("API_KEY"),
 	)
 
-	// already the default value
+	// you can override default http client
+	// briq.Client = http.Client{...}
+
+	// override per_page value
+	// 100 is already the default value
 	briq.DefaultLimit = 100
 
-	// same as:
+	// three next line is exactly the same:
 	// res, err := b.Transactions(briq.Page(1, 100))
 	// res, err := b.Transactions(briq.Page(1))
 	res, err := b.Transactions(briq.Page())
