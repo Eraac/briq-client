@@ -13,6 +13,9 @@ func main() {
 		os.Getenv("API_KEY"),
 	)
 
+	// change the base URL if needed
+	// briq.BaseURL = "https://www.givebriq.com/v0"
+
 	// you can override default http client
 	// briq.Client = http.Client{...}
 
@@ -29,6 +32,6 @@ func main() {
 	}
 
 	for _, t := range res.Transactions {
-		fmt.Printf("app: %s | from: %s | to: %s | amount: %d\n", t.App, t.From, t.To, t.Amount)
+		fmt.Printf("[%d] %s -> %s\n", t.Amount, t.From, t.To)
 	}
 }
