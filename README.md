@@ -1,6 +1,8 @@
 # Briq Client
 
-Golang client for www.givebriq.com
+Golang client for [briq](www.givebriq.com)
+
+Briq API [documentation](https://briq.github.io)
 
 ## Example 
 
