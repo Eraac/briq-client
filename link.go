@@ -72,7 +72,6 @@ func linkFromResponse(r *http.Response) *Link {
 
 	setPagination := func(p **Pagination, rel string) {
 		if l := ll.FilterByRel(rel); len(l) > 0 {
-			fmt.Printf("- rel: %s\n", l.String())
 
 			u, err := url.Parse(l[0].URL)
 			if err != nil {
@@ -95,9 +94,7 @@ func linkFromResponse(r *http.Response) *Link {
 		"previous": &link.Previous,
 		"next":     &link.Next,
 	} {
-		fmt.Printf("rel: %s\n", rel)
 		setPagination(pagination, rel)
-		fmt.Printf("\n")
 	}
 
 	return link
