@@ -45,7 +45,11 @@ func Page(i ...int) Pagination {
 	}
 }
 
-func (p Pagination) query() string {
+func (p *Pagination) query() string {
+	if p == nil {
+		return ""
+	}
+
 	return fmt.Sprintf("?page=%d&per_page=%d", p.Page, p.PerPage)
 }
 

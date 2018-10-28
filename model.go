@@ -39,4 +39,11 @@ type (
 		UserFromID     string `json:"user_from_id"`
 		UserToID       string `json:"user_to_id"`
 	}
+
+	TransactionInput struct {
+		From    string `json:"from"`
+		To      string `json:"to"`
+		Amount  int    `json:"amount"`
+		Comment string `json:"comment"`
+	}
 )

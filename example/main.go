@@ -26,12 +26,19 @@ func main() {
 	// three next line is exactly the same:
 	// res, err := b.Transactions(briq.Page(1, 100))
 	// res, err := b.Transactions(briq.Page(1))
-	res, err := b.Transactions(briq.Page())
-	if err != nil {
-		panic(err)
+	res := b.Transactions(briq.Page())
+	if res.Error != nil {
+		panic(res.Error)
 	}
 
 	for _, t := range res.Transactions {
 		fmt.Printf("[%d] %s -> %s\n", t.Amount, t.From, t.To)
 	}
+
+	b.DoTransaction(briq.TransactionInput{
+		From:    "kevin",
+		To:      "elias",
+		Amount:  1,
+		Comment: "testing my sdk",
+	})
 }
