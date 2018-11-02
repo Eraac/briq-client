@@ -54,19 +54,11 @@ func (p *Pagination) query() string {
 }
 
 func (l Link) HasNext() bool {
-	if l.Next == nil {
-		return false
-	}
-
-	return true
+	return l.Next != nil
 }
 
 func (l Link) HasPrevious() bool {
-	if l.Previous == nil {
-		return false
-	}
-
-	return true
+	return l.Previous != nil
 }
 
 func linkFromResponse(r *http.Response) *Link {
