@@ -63,6 +63,7 @@ func (b Briq) request(method, uri string, p *Pagination, body io.Reader, out int
 	if err != nil {
 		return Response{Error: err}
 	}
+	defer func() {_ = res.Body.Close()}()
 
 	if res.StatusCode != statusCode[method] {
 		return Response{Error: fmt.Errorf("server response %d", res.StatusCode)}
