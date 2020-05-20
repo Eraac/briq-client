@@ -1,6 +1,6 @@
 package briq
 
-var BaseURL = "https://www.givebriq.com/v0"
+var BaseURL = "https://api.givebriq.com/v0"
 
 const (
 	endpointOrganization = "/organizations/%s"
